@@ -1,5 +1,4 @@
 import java.util.*;
-import com.google.gson.*;
 import java.io.File;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -15,6 +14,7 @@ public class RunProgram {
     private static List acceptedDocumentTypes = Arrays.asList("XML", "JSON");
     private static String xmlTestDocument = "xmlDefaultTestingDocument.xml";
     private static String jsonTestDocument = "jsonDefaultTestingDocument.json";
+    private static String fileData;
 
     public static void main(String[] args) {
 
@@ -32,13 +32,28 @@ public class RunProgram {
         System.out.println("THe fileExtension is: " + fileExtension);
 
 
+
+        fileReader fReader = new fileReader(fileName, fileExtension);
+        if (fReader.readFile() == "") {
+            System.out.println("The content is empty");
+        }
+
+
+
+        fileData = fReader.readFile();
+        System.out.println("The content of the file is: " + fileData);
+
         if (acceptedDocumentTypes.contains(fileExtension)) {
 
             int documentIndex = acceptedDocumentTypes.lastIndexOf(fileExtension);
             Parse parser = new Parse(acceptedDocumentTypes.get(documentIndex).toString());
-            parser.performParse(fileName);
+            parser.performParse(fileData);
 
         }
+        else {
+            System.out.println("Please specify a file with a valid extension.");
+        }
+
         //TODO: if XML -> Parse parser = new Parse("XML");
         //TODO: if JSON -> Parse parser = new Parse("JSON");
     }
