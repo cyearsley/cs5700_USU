@@ -7,17 +7,17 @@ import java.util.regex.Pattern;
  */
 public abstract class Person {
 
-    private int objectId;
-    private int birthYear;
-    private int birthMonth;
-    private int birthDay;
+    private int ObjectId;
+    private int BirthYear;
+    private int BirthMonth;
+    private int BirthDay;
 
-    private String stateFileNumber;
-    private String socialSecurityNumber;
-    private String firstName;
-    private String middleName;
-    private String lastName;
-    private String gender;
+    private String StateFileNumber;
+    private String SocialSecurityNumber;
+    private String FirstName;
+    private String MiddleName;
+    private String LastName;
+    private String Gender;
     private String __type;
 
 //    public Person(int objectId, int birthYear, int birthMonth, int birthDay, String stateFileNumber, String socialSecurityNumber, String firstName, String middleName, String lastName, String gender) {
@@ -52,83 +52,83 @@ public abstract class Person {
     }
 
     public int getObjectId() {
-        return objectId;
+        return ObjectId;
     }
 
     public void setObjectId(String objectId) {
-        this.objectId = checkSetInt(objectId);
+        this.ObjectId = checkSetInt(objectId);
     }
 
     public int getBirthYear() {
-        return birthYear;
+        return BirthYear;
     }
 
     public void setBirthYear(String birthYear) {
-        this.birthYear = checkSetInt(birthYear);
+        this.BirthYear = checkSetInt(birthYear);
     }
 
     public int getBirthMonth() {
-        return birthMonth;
+        return BirthMonth;
     }
 
     public void setBirthMonth(String birthMonth) {
-        this.birthMonth = checkSetInt(birthMonth);
+        this.BirthMonth = checkSetInt(birthMonth);
     }
 
     public int getBirthDay() {
-        return birthDay;
+        return BirthDay;
     }
 
     public void setBirthDay(String birthDay) {
-        this.birthDay = checkSetInt(birthDay);
+        this.BirthDay = checkSetInt(birthDay);
     }
 
     public String getStateFileNumber() {
-        return stateFileNumber;
+        return StateFileNumber;
     }
 
     public void setStateFileNumber(String stateFileNumber) {
-        this.stateFileNumber = stateFileNumber;
+        this.StateFileNumber = stateFileNumber;
     }
 
     public String getSocialSecurityNumber() {
-        return socialSecurityNumber;
+        return SocialSecurityNumber;
     }
 
     public void setSocialSecurityNumber(String socialSecurityNumber) {
-        this.socialSecurityNumber = socialSecurityNumber;
+        this.SocialSecurityNumber = socialSecurityNumber;
     }
 
     public String getFirstName() {
-        return firstName;
+        return FirstName;
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        this.FirstName = firstName;
     }
 
     public String getMiddleName() {
-        return middleName;
+        return MiddleName;
     }
 
     public void setMiddleName(String middleName) {
-        this.middleName = middleName;
+        this.MiddleName = middleName;
     }
 
     public String getLastName() {
-        return lastName;
+        return LastName;
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        this.LastName = lastName;
     }
 
     public String getGender() {
-        return gender;
+        return Gender;
     }
 
     public void setGender(String gender) {
-        this.gender = gender;
+        this.Gender = gender;
     }
 
     public String get__type() {

@@ -12,11 +12,23 @@ public class findAndWritePersonRelationships {
 
     public findAndWritePersonRelationships(List<Person> peopleData) {
         this.listOfPeople = peopleData;
+        this.dataOutput = "";
         System.out.println("The parsed data is: " +  this.listOfPeople);
+
+        readUserOutputFileName();
+        findRelationships();
     }
 
     public String getOutputFile() {
         return outputFile;
+    }
+
+    public void appendDataOutput(String data) {
+        this.dataOutput += data + "\n";
+    }
+
+    public String getDataOutput() {
+        return this.dataOutput;
     }
 
     public String readUserOutputFileName () {
@@ -37,6 +49,7 @@ public class findAndWritePersonRelationships {
 //    Find the relationships between people.
     public boolean findRelationships() {
 
+
 //        Evaluate every possible relationship
         for (int comparer = 0; comparer < listOfPeople.size(); comparer++) {
             for (int comparee = 0; comparee < listOfPeople.size(); comparee++) {
@@ -44,6 +57,13 @@ public class findAndWritePersonRelationships {
 //                We don't want to compare a person with themselves
                 if (comparer == comparee) {
                     continue;
+                }
+
+                testRelationships relTests = new testRelationships(listOfPeople.get(comparer), listOfPeople.get(comparee));
+
+//                System.out.println("the first object's id is: " + listOfPeople.get(0).getFirstName());
+                if (relTests.runTests()) {
+                    appendDataOutput("(" + Integer.toString(listOfPeople.get(comparer).getObjectId()) + ", " + Integer.toString(listOfPeople.get(comparee).getObjectId()) + ")");
                 }
             }
         }

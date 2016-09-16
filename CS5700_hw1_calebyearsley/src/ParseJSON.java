@@ -1,4 +1,6 @@
 import com.google.gson.*;
+
+import java.sql.Wrapper;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -22,7 +24,7 @@ public class ParseJSON implements IParse {
 //        Found on http://stackoverflow.com/questions/11255353/java-best-way-to-grab-all-strings-between-two-strings-regex
         List<String> strings = Arrays.asList( JSON.replaceAll("^.*?\\{", "").split("\\}.*?(\\{|$)"));
 
-        List<Person> people = new ArrayList<>();
+        List<Person> people = new ArrayList<Person>();
 
         for (int i = 0; i < strings.size(); i++) {
             Gson gson = new GsonBuilder().create();
@@ -31,19 +33,18 @@ public class ParseJSON implements IParse {
 //            System.out.println("The type we are testing for is: " +  gson.fromJson("{"+strings.get(i)+"}",Person.class).getType());
 
             if (personType.contains("adult")) {
-                System.out.println("Creating an adult...");
-                Person p = gson.fromJson("{"+strings.get(i)+"}", Adult.class);
+//                System.out.println("Creating an adult...");
+                Adult p = gson.fromJson("{"+strings.get(i)+"}", Adult.class);
                 people.add(p);
             }
             else if (personType.contains("child")) {
-                System.out.println("Creating a child...");
-                Person p = gson.fromJson("{"+strings.get(i)+"}",  Child.class);
+//                System.out.println("Creating a child...");
+                Child p = gson.fromJson("{"+strings.get(i)+"}",  Child.class);
                 people.add(p);
             }
 
         }
 
-//        System.out.println("Parsing: JSON with the name... " + people);
         return people;
     }
 }

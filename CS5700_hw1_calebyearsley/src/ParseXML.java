@@ -29,7 +29,6 @@ public class ParseXML implements IParse {
                     Element element = (Element) nodes.item(i);
 
                     String personType = element.getAttribute("xsi:type");
-                    System.out.println("The type is: " + personType);
 
                     if (personType.toLowerCase().equals("Adult".toLowerCase())) {
 

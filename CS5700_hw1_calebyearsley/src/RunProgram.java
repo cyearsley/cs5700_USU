@@ -44,10 +44,16 @@ public class RunProgram {
             Parse parser = new Parse(acceptedDocumentTypes.get(documentIndex).toString());
             List<Person> parsedData = parser.performParse(fileData);
 
+//            if (parsedData.get(0).get__type().toLowerCase().equals("child")) {
+
+                System.out.println("FirstName: " + parsedData.get(0).getFirstName());
+//            }
+
             findAndWritePersonRelationships relationship = new findAndWritePersonRelationships(parsedData);
-            relationship.readUserOutputFileName();
+            String output = relationship.getDataOutput();
 
             System.out.println("The output file is: " + relationship.getOutputFile());
+            System.out.println("The relationships are:\n" + output);
 
         }
         else {

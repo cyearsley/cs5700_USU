@@ -3,14 +3,14 @@
  * Child - inherits from Person.
  */
 public class Child extends Person {
-    private int birthOrder;
+    private int BirthOrder;
 
-    private String newbornScreeningNumber;
-    private String isPartOfMultipleBirth;
-    private String birthCountry;
-    private String motherFirstName;
-    private String motherMiddleName;
-    private String motherLastName;
+    private String NewbornScreeningNumber;
+    private String IsPartOfMultipleBirth;
+    private String BirthCountry;
+    private String MotherFirstName;
+    private String MotherMiddleName;
+    private String MotherLastName;
 
 //    public Child(int objectId, int birthYear, int birthMonth, int birthDay, String stateFileNumber, String socialSecurityNumber, String firstName, String middleName, String lastName, String gender, int birthOrder, String newbornScreeningNumber, String isPartOfMultipleBirth, String birthCountry, String motherFirstName, String motherMiddleName, String motherLastName) {
 //        super(objectId, birthYear, birthMonth, birthDay, stateFileNumber, socialSecurityNumber, firstName, middleName, lastName, gender);
@@ -24,58 +24,58 @@ public class Child extends Person {
 //    }
 
     public int getBirthOrder() {
-        return birthOrder;
+        return BirthOrder;
     }
 
     public String getNewbornScreeningNumber() {
-        return newbornScreeningNumber;
+        return NewbornScreeningNumber;
     }
 
     public String getIsPartOfMultipleBirth() {
-        return isPartOfMultipleBirth;
+        return IsPartOfMultipleBirth;
     }
 
     public String getBirthCountry() {
-        return birthCountry;
+        return BirthCountry;
     }
 
     public String getMotherFirstName() {
-        return motherFirstName;
+        return MotherFirstName;
     }
 
     public String getMotherMiddleName() {
-        return motherMiddleName;
+        return MotherMiddleName;
     }
 
     public String getMotherLastName() {
-        return motherLastName;
+        return MotherLastName;
     }
 
     public void setBirthOrder(String birthOrder) {
-        this.birthOrder = checkSetInt(birthOrder);
+        this.BirthOrder = checkSetInt(birthOrder);
     }
 
     public void setNewbornScreeningNumber(String newbornScreeningNumber) {
-        this.newbornScreeningNumber = newbornScreeningNumber;
+        this.NewbornScreeningNumber = newbornScreeningNumber;
     }
 
     public void setIsPartOfMultipleBirth(String isPartOfMultipleBirth) {
-        this.isPartOfMultipleBirth = isPartOfMultipleBirth;
+        this.IsPartOfMultipleBirth = isPartOfMultipleBirth;
     }
 
     public void setBirthCountry(String birthCountry) {
-        this.birthCountry = birthCountry;
+        this.BirthCountry = birthCountry;
     }
 
     public void setMotherFirstName(String motherFirstName) {
-        this.motherFirstName = motherFirstName;
+        this.MotherFirstName = motherFirstName;
     }
 
     public void setMotherMiddleName(String motherMiddleName) {
-        this.motherMiddleName = motherMiddleName;
+        this.MotherMiddleName = motherMiddleName;
     }
 
     public void setMotherLastName(String motherLastName) {
-        this.motherLastName = motherLastName;
+        this.MotherLastName = motherLastName;
     }
 }
