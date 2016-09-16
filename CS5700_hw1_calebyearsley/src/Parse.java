@@ -1,3 +1,5 @@
+import java.util.List;
+
 /**
  * Created by Caleb on 9/13/2016.
  * Class to delegate parsing methods.
@@ -18,7 +20,8 @@ public class Parse {
         //  Keep in mind: if another file type is required, we will need to add another parsing behavior.
     }
 
-    public void performParse(String fileName) {
-        parser.parse(fileName);
+    public List performParse(String fileData) {
+        List<Person> parsedFileData = parser.parse(fileData);
+        return parsedFileData;
     }
 }

@@ -14,6 +14,7 @@ public abstract class Person {
     private String middleName;
     private String lastName;
     private String gender;
+    private String __type;
 
     public Person(int objectId, int birthYear, int birthMonth, int birthDay, String stateFileNumber, String socialSecurityNumber, String firstName, String middleName, String lastName, String gender) {
         this.objectId = objectId;
@@ -26,5 +27,13 @@ public abstract class Person {
         this.middleName = middleName;
         this.lastName = lastName;
         this.gender = gender;
+    }
+
+    public String getType() {
+        return this.__type;
+    }
+
+    public int getId() {
+        return this.objectId;
     }
 }

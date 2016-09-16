@@ -12,4 +12,12 @@ public class Adult extends Person {
         this.phone1 = phone1;
         this.phone2 = phone2;
     }
+
+    public String getPhone1() {
+        return phone1;
+    }
+
+    public String getPhone2() {
+        return phone2;
+    }
 }

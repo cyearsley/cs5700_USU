@@ -12,8 +12,8 @@ import java.util.Scanner;
 public class RunProgram {
 
     private static List acceptedDocumentTypes = Arrays.asList("XML", "JSON");
-    private static String xmlTestDocument = "xmlDefaultTestingDocument.xml";
-    private static String jsonTestDocument = "jsonDefaultTestingDocument.json";
+    private static String xmlTestDocument = "PersonTestSet_11.xml";
+    private static String jsonTestDocument = "PersonTestSet_01.json";
     private static String fileData;
 
     public static void main(String[] args) {
@@ -29,25 +29,21 @@ public class RunProgram {
         }
 
         String fileExtension = fileName.replaceAll("(.*)\\.", "").toUpperCase();
-        System.out.println("THe fileExtension is: " + fileExtension);
-
-
+        System.out.println("The fileExtension is: " + fileExtension);
 
         fileReader fReader = new fileReader(fileName, fileExtension);
         if (fReader.readFile() == "") {
             System.out.println("The content is empty");
         }
 
-
-
         fileData = fReader.readFile();
-        System.out.println("The content of the file is: " + fileData);
 
         if (acceptedDocumentTypes.contains(fileExtension)) {
 
             int documentIndex = acceptedDocumentTypes.lastIndexOf(fileExtension);
             Parse parser = new Parse(acceptedDocumentTypes.get(documentIndex).toString());
-            parser.performParse(fileData);
+            List<Person> parsedData = parser.performParse(fileData);
+            System.out.println("The parsed data is: " +  parsedData);
 
         }
         else {

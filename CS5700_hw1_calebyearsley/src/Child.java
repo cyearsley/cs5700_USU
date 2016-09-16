@@ -22,4 +22,33 @@ public class Child extends Person {
         this.motherMiddleName = motherMiddleName;
         this.motherLastName = motherLastName;
     }
+
+    public int getBirthOrder() {
+        return birthOrder;
+    }
+
+    public String getNewbornScreeningNumber() {
+        return newbornScreeningNumber;
+    }
+
+    public String getIsPartOfMultipleBirth() {
+        return isPartOfMultipleBirth;
+    }
+
+    public String getBirthCountry() {
+        return birthCountry;
+    }
+
+    public String getMotherFirstName() {
+        return motherFirstName;
+    }
+
+    public String getMotherMiddleName() {
+        return motherMiddleName;
+    }
+
+    public String getMotherLastName() {
+        return motherLastName;
+    }
+
 }
