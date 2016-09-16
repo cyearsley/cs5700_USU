@@ -1,12 +1,16 @@
+import com.sun.xml.internal.ws.util.StringUtils;
+
+import java.util.regex.Pattern;
+
 /**
  * Created by Caleb on 9/13/2016.
  */
 public abstract class Person {
 
-    private String objectId;
-    private String birthYear;
-    private String birthMonth;
-    private String birthDay;
+    private int objectId;
+    private int birthYear;
+    private int birthMonth;
+    private int birthDay;
 
     private String stateFileNumber;
     private String socialSecurityNumber;
@@ -29,44 +33,54 @@ public abstract class Person {
 //        this.gender = gender;
 //    }
 
+    /*
+    * Checks to see if testNumber is an integer, if so, return the integer... else return -1.
+    *   This is primarily used for parsing xml documents. Gson seems to handle all the data gracefully for JSON.
+    * */
+    public int checkSetInt(String testNumber) {
+//        Integer testing using regex referneced from: http://stackoverflow.com/questions/14206768/how-to-check-if-a-string-is-numeric
+        if (!testNumber.matches("[+]?\\d*")) {
+//            The testNumber is NOT a number, so return -1.
+            return -1;
+        }
+//        The testNumber IS a number, so return it.
+        return Integer.parseInt(testNumber);
+    }
+
     public String getType() {
         return this.__type;
     }
 
-    public String getId() {
-        return this.objectId;
-    }
-
-    public String getObjectId() {
+    public int getObjectId() {
         return objectId;
     }
 
     public void setObjectId(String objectId) {
-        this.objectId = objectId;
+        this.objectId = checkSetInt(objectId);
     }
 
-    public String getBirthYear() {
+    public int getBirthYear() {
         return birthYear;
     }
 
     public void setBirthYear(String birthYear) {
-        this.birthYear = birthYear;
+        this.birthYear = checkSetInt(birthYear);
     }
 
-    public String getBirthMonth() {
+    public int getBirthMonth() {
         return birthMonth;
     }
 
     public void setBirthMonth(String birthMonth) {
-        this.birthMonth = birthMonth;
+        this.birthMonth = checkSetInt(birthMonth);
     }
 
-    public String getBirthDay() {
+    public int getBirthDay() {
         return birthDay;
     }
 
     public void setBirthDay(String birthDay) {
-        this.birthDay = birthDay;
+        this.birthDay = checkSetInt(birthDay);
     }
 
     public String getStateFileNumber() {

@@ -3,7 +3,7 @@
  * Child - inherits from Person.
  */
 public class Child extends Person {
-    private String birthOrder;
+    private int birthOrder;
 
     private String newbornScreeningNumber;
     private String isPartOfMultipleBirth;
@@ -23,7 +23,7 @@ public class Child extends Person {
 //        this.motherLastName = motherLastName;
 //    }
 
-    public String getBirthOrder() {
+    public int getBirthOrder() {
         return birthOrder;
     }
 
@@ -52,7 +52,7 @@ public class Child extends Person {
     }
 
     public void setBirthOrder(String birthOrder) {
-        this.birthOrder = birthOrder;
+        this.birthOrder = checkSetInt(birthOrder);
     }
 
     public void setNewbornScreeningNumber(String newbornScreeningNumber) {

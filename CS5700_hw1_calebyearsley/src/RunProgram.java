@@ -43,7 +43,11 @@ public class RunProgram {
             int documentIndex = acceptedDocumentTypes.lastIndexOf(fileExtension);
             Parse parser = new Parse(acceptedDocumentTypes.get(documentIndex).toString());
             List<Person> parsedData = parser.performParse(fileData);
-            System.out.println("The parsed data is: " +  parsedData);
+
+            findAndWritePersonRelationships relationship = new findAndWritePersonRelationships(parsedData);
+            relationship.readUserOutputFileName();
+
+            System.out.println("The output file is: " + relationship.getOutputFile());
 
         }
         else {
