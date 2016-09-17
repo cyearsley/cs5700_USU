@@ -13,7 +13,6 @@ public class ParseXML implements IParse {
 
     @Override
     public List parse(String XML) {
-        System.out.println("Parsing: XML with the name... " + XML);
         List<Person> personList = new ArrayList<>();
 
 //            Referencing http://www.rgagnon.com/javadetails/java-0573.html

@@ -39,11 +39,6 @@ public class RunProgram {
                 Parse parser = new Parse(acceptedDocumentTypes.get(documentIndex).toString());
                 List<Person> parsedData = parser.performParse(fileData);
 
-//            if (parsedData.get(0).get__type().toLowerCase().equals("child")) {
-
-                System.out.println("FirstName: " + parsedData.get(0).getFirstName());
-//            }
-
                 findAndWritePersonRelationships relationship = new findAndWritePersonRelationships(parsedData);
                 String output = relationship.getDataOutput();
                 relationship.writeToOutputFile(relationship.getOutputFile());
