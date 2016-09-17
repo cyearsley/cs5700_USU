@@ -1,7 +1,3 @@
-import com.sun.xml.internal.ws.util.StringUtils;
-
-import java.util.regex.Pattern;
-
 /**
  * Created by Caleb on 9/13/2016.
  */

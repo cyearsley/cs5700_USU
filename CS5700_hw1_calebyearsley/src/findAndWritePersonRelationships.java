@@ -1,3 +1,4 @@
+import java.io.PrintWriter;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,7 +13,7 @@ public class findAndWritePersonRelationships {
 
     public findAndWritePersonRelationships(List<Person> peopleData) {
         this.listOfPeople = peopleData;
-        this.dataOutput = "";
+        this.dataOutput = "Matching Pairs:\n";
         System.out.println("The parsed data is: " +  this.listOfPeople);
 
         readUserOutputFileName();
@@ -41,8 +42,14 @@ public class findAndWritePersonRelationships {
         return oFile;
     }
 
-    public boolean writeToOutputFile() {
-
+    public boolean writeToOutputFile(String oFileName) {
+        try {
+            PrintWriter writer = new PrintWriter("src/dataCollected_" + oFileName , "UTF-8");
+            writer.println(dataOutput);
+            writer.close();
+        } catch (Exception e) {
+            return false;
+        }
         return true;
     }
 

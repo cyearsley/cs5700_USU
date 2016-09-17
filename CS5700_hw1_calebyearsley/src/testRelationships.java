@@ -12,19 +12,18 @@ public class testRelationships {
         this.person2 = person2;
     }
 
-    //    Tests social security number and state file number
 //    Assume the following sets:
 //        name: {fname,mname,lname}
 //        unqiue: {SSN, SFN}
 //        dates: {YOB, MOB, DOB}
 //        gender: {gender}
 
-//    test the following:
-//        1) 2name, 1unqiue
-//        2) 1name, 2unqiue
-//        3) 1name, 1unqiue, 1dates
+//    test the following (at least 5 test requirement met):
+//        1) 2name, 1unqiue, gender
+//        2) 1name, 2unqiue, gender
+//        3) 1name, 1unqiue, 1dates, gender
 //        4) 2unqiue, gender
-//        5) 2unqiue, 1dates
+//        5) 2unqiue, 1dates, gender
 
     public boolean runTests() {
 
@@ -38,7 +37,7 @@ public class testRelationships {
             else if (test1Name() && test1Uniqiue() && test1Date() && testGender()) {
                 return true;
             }
-            else if (test2Unqiue() && testGender() && testGender()) {
+            else if (test2Unqiue() && testGender()) {
                 return true;
             }
             else if (test2Unqiue() && test1Date() && testGender()) {
@@ -70,7 +69,6 @@ public class testRelationships {
     }
 
     public boolean test2Name() {
-        System.out.println("first name: " + person2.getFirstName());
         try {
             if (person1.getFirstName().equals(person2.getFirstName()) && person1.getMiddleName().equals(person2.getMiddleName())) {
                 return true;
@@ -122,26 +120,5 @@ public class testRelationships {
         }
         return false;
     }
-
-//    public boolean testOneName(Person comparer, Person comparee) {
-//        System.out.println("comparer: " + comparer.getFirstName() + ", comparee: " + comparee.getFirstName());
-//        System.out.println("comparer: " + comparer.getSocialSecurityNumber() + ", comparee: " + comparee.getSocialSecurityNumber());
-//        System.out.println("comparer: " + comparer.getStateFileNumber() + ", comparee: " + comparee.getStateFileNumber());
-//        System.out.println("==================");
-//        if (
-//                comparer.getStateFileNumber() == comparee.getStateFileNumber()
-//                || comparer.getSocialSecurityNumber() == comparee.getSocialSecurityNumber()
-//                ) {
-//
-//            if (
-//                    (comparer.getFirstName() == comparee.getFirstName() )
-//                    || (comparer.getMiddleName() == comparee.getMiddleName() )
-//                    || (comparer.getLastName() == comparee.getLastName() )
-//                    ) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
 
 }

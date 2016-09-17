@@ -1,8 +1,4 @@
 import java.util.*;
-import java.io.File;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import org.w3c.dom.Document;
 import java.util.Scanner;
 
 /**
@@ -18,7 +14,7 @@ public class RunProgram {
 
     public static void main(String[] args) {
 
-        //TODO: check to see what type of file we are reading...
+        //What type of file are we reading?
         String fileName = promptFileType();
 
         if ("XML".equals(fileName.toUpperCase())) {
@@ -29,39 +25,37 @@ public class RunProgram {
         }
 
         String fileExtension = fileName.replaceAll("(.*)\\.", "").toUpperCase();
-        System.out.println("The fileExtension is: " + fileExtension);
 
         fileReader fReader = new fileReader(fileName, fileExtension);
         if (fReader.readFile() == "") {
-            System.out.println("The content is empty");
+            System.out.println("The file could not be found! Please ensure that your file is in the src/ directory, and the spelling is correct.\nRe-run the program and try again...");
         }
+        else {
+            fileData = fReader.readFile();
 
-        fileData = fReader.readFile();
+            if (acceptedDocumentTypes.contains(fileExtension)) {
 
-        if (acceptedDocumentTypes.contains(fileExtension)) {
-
-            int documentIndex = acceptedDocumentTypes.lastIndexOf(fileExtension);
-            Parse parser = new Parse(acceptedDocumentTypes.get(documentIndex).toString());
-            List<Person> parsedData = parser.performParse(fileData);
+                int documentIndex = acceptedDocumentTypes.lastIndexOf(fileExtension);
+                Parse parser = new Parse(acceptedDocumentTypes.get(documentIndex).toString());
+                List<Person> parsedData = parser.performParse(fileData);
 
 //            if (parsedData.get(0).get__type().toLowerCase().equals("child")) {
 
                 System.out.println("FirstName: " + parsedData.get(0).getFirstName());
 //            }
 
-            findAndWritePersonRelationships relationship = new findAndWritePersonRelationships(parsedData);
-            String output = relationship.getDataOutput();
+                findAndWritePersonRelationships relationship = new findAndWritePersonRelationships(parsedData);
+                String output = relationship.getDataOutput();
+                relationship.writeToOutputFile(relationship.getOutputFile());
 
-            System.out.println("The output file is: " + relationship.getOutputFile());
-            System.out.println("The relationships are:\n" + output);
+                System.out.println(output);
 
+            }
+            else {
+                System.out.println("Please specify a file with a valid extension (.json or .xml).");
+            }
         }
-        else {
-            System.out.println("Please specify a file with a valid extension.");
-        }
 
-        //TODO: if XML -> Parse parser = new Parse("XML");
-        //TODO: if JSON -> Parse parser = new Parse("JSON");
     }
 
     public static String promptFileType() {
